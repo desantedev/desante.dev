@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Desante</title>
+
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js" defer></script>
+    <script src="./script.js" defer></script>
+
+    <style>
+
+        body {
+            margin: 0px;
+            padding: 0px;
+        }
+
+
+        header {
+            perspective: 1000px;
+            background: #EAEAEA;
+            position: relative;
+            overflow: hidden;
+        }
+
+        #header-bg {
+
+            opacity: 0.5;
+
+            width: 500vw;
+            height: 500vh;
+
+            transform-style: preserve-3d;
+            transform: translateX(-250vw) translateY(-250vh) rotateX(50deg) rotateY(0deg) rotateZ(-25deg);
+
+            background: url("./bg_p.png");
+            background-repeat: repeat;
+            background-size: 450px 450px;
+            background-position: 0% 0%;
+            
+            animation-name: scrollBackground;
+            animation-duration: 90s;
+            animation-iteration-count: infinite;
+            animation-timing-function: linear;
+
+            image-rendering: crisp-edges;
+            image-rendering: -moz-crisp-edges;          /* Firefox */
+            image-rendering: -o-crisp-edges;            /* Opera */
+            image-rendering: -webkit-optimize-contrast; /* Webkit (non-standard naming)*/
+            -ms-interpolation-mode: nearest-neighbor; 
+
+            z-index: 1;
+            position: absolute;
+        }
+
+        #confetti-canvas {
+            width: 100vw;
+            height: 100vh;
+
+            background-image: radial-gradient(#FFFFFFDD, transparent), linear-gradient(#DDDDDD, transparent);
+            
+            z-index: 2;
+            position: absolute;
+        }
+
+        #logo-wrap {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-flow: column;
+            gap: 25px;
+
+            width: 100vw;
+            height: 100vh;
+            perspective: 1000px;
+
+            
+            position: relative;
+            z-index: 3;
+        }
+
+        #logo-wrap > img {
+            transform-style: preserve-3d;
+            user-select: none;
+            -webkit-touch-callout: none;
+        }
+
+        #logo-wrap > #search {
+            width: 350px;
+            padding: 0.45rem 1rem;
+        }
+
+        @keyframes scrollBackground {
+            0% {
+                background-position: 0px 0px;
+            }
+            100% {
+                background-position: -450px -900px;
+            }
+        }
+
+        main > section {
+            margin: 2rem 2rem;
+            font-family: sans-serif;
+        }
+
+        footer {
+            text-align: center;
+            font-family: sans-serif;
+            background: #EEEEEE;
+            padding: 0.5rem;
+        }
+    </style>
+</head>
+<body>
+    <header id="header">
+        <div id="header-bg"></div>
+        <canvas id="confetti-canvas"></canvas>
+        <div id="logo-wrap">
+            <img id="logo-image" src="./logo.svg"  width="450px" height="auto" alt="desante.dev"/>
+            <input type="search" id="search" placeholder="What can I find for you?" autofocus />
+        </div>
+    </header>
+    <main>
+        <!--<section>
+            <h1># Active Projects</h1>
+            <div>
+                Marquee Scroll of active projects 
+            </div>
+        </section> -->
+
+        <section>
+            <h1># Our Mission</h1>
+            <p>
+                Build things that help people. Thats our goal. 
+            </p>
+        </section>
+        
+    </main>
+    <footer>
+        <p>&copy; Joel DeSante</p>
+    </footer>
+</body>
+</html>
